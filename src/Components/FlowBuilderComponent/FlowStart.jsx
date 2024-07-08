@@ -1,65 +1,82 @@
-import React, { useContext, useEffect, useState } from "react";
+import React from "react";
 import { Handle, Position } from "reactflow";
 
-const FlowStart = ({ id }) => {
-  // node click handle
-  const nodeClickHandle = () => {
-    console.log("node clicked");
-  };
-
+const FlowStart = () => {
   return (
     <div
       style={{
-        width: "120px",
-        height: "40px",
+        width: "100px",
+        height: "127px",
         boxShadow: "0px 0px 7px rgba(0, 0, 0, 0.3)",
-        backgroundColor: "white",
+        backgroundColor: "#008069",
+        borderRadius: 7,
+        display: "flex",
+        flexDirection: "column",
       }}
-      onClick={nodeClickHandle}
     >
-      {/* node head section */}
+      {/* node title section */}
       <div
         style={{
-          width: "100%",
-          height: "15px",
-          backgroundColor: "#B2F0E3",
+          width: "90px",
+          height: "20px",
+          backgroundColor: "#E9EDEF",
+          margin: "5px",
+          borderRadius: 7,
           display: "flex",
-          justifyContent: "center",
           alignItems: "center",
         }}
       >
-        {/* Action Process Symbol text */}
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            marginLeft: "5px",
-            height: "15px",
-          }}
-        >
-          <p style={{ fontSize: "7px", fontWeight: "600" }}>Flow Start</p>
-        </div>
-      </div>
-
-      {/* node message text section */}
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "flex-start",
-          marginLeft: "7px",
-          height: "25px",
-        }}
-      >
-        <p style={{ fontSize: "7px", fontWeight: "400" }}>
-          {/* {currentNodeMessage} */}
-          flow start node
+        <p style={{ fontSize: "7px", fontWeight: "600", marginLeft: "7px" }}>
+          Flow Start
         </p>
       </div>
 
+      {/* node input section */}
+      <div
+        style={{
+          width: "90px",
+          height: "90px",
+          backgroundColor: "#EAE6DF",
+          margin: "0 5px 5px 5px",
+          borderRadius: 7,
+          display: "flex",
+          flexDirection: "column",
+        }}
+      >
+        {/* first input */}
+        <label style={{ fontSize: "5px", margin: "5px 2px 4px 2px" }}>
+          Type, press enter to add keyword
+        </label>
+        <input
+          type="text"
+          placeholder="Enter keywords"
+          style={{
+            width: "80px",
+            height: "15px",
+            fontSize: "6px",
+            marginLeft: "1px",
+          }}
+        />
+
+        {/* second input */}
+        <label style={{ fontSize: "5px", margin: "5px 2px 4px 2px" }}>
+          Enter regex to match substring trigger
+        </label>
+        <input
+          type="text"
+          style={{
+            width: "80px",
+            height: "15px",
+            fontSize: "6px",
+            marginLeft: "1px",
+          }}
+        />
+      </div>
+
       {/* handle */}
-      <Handle type="source" position={Position.Right} />
-      <Handle type="target" position={Position.Left} />
+      <div style={{ position: "absolute", right: "10px", bottom: "112px" }}>
+        <Handle type="source" position={Position.Right} />
+      </div>
     </div>
   );
 };
