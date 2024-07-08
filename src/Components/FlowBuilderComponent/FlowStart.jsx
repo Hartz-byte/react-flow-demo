@@ -26,7 +26,14 @@ const FlowStart = () => {
           alignItems: "center",
         }}
       >
-        <p style={{ fontSize: "7px", fontWeight: "600", marginLeft: "7px" }}>
+        <p
+          style={{
+            fontSize: "7px",
+            fontWeight: "600",
+            marginLeft: "7px",
+            color: "#008069",
+          }}
+        >
           Flow Start
         </p>
       </div>
@@ -74,9 +81,8 @@ const FlowStart = () => {
       </div>
 
       {/* handle */}
-      <div style={{ position: "absolute", right: "10px", bottom: "112px" }}>
-        <Handle type="source" position={Position.Right} />
-      </div>
+
+      <Handle type="source" position={Position.Right} />
     </div>
   );
 };
