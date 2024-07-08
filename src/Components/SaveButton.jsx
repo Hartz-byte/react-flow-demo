@@ -13,7 +13,14 @@ const SaveButton = () => {
       }}
     >
       <button
-        style={{ backgroundColor: "#008069", color: "#fff", marginRight: 130 }}
+        style={{
+          width: "100px",
+          height: "40px",
+          backgroundColor: "#008069",
+          color: "#fff",
+          marginRight: 130,
+          fontSize: "10px",
+        }}
       >
         Save Changes
       </button>
