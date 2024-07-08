@@ -39,7 +39,7 @@ const FlowBuilder = () => {
   });
 
   return (
-    <div style={{ width: "73vw", height: "90vh" }}>
+    <div style={{ width: "85vw", height: "90vh" }}>
       <ReactFlow
         nodes={nodes}
         edges={edges}
@@ -49,7 +49,7 @@ const FlowBuilder = () => {
         nodeTypes={nodeTypes}
         fitView
       >
-        <Background variant="dots" size={1} />
+        <Background variant="dots" gap={15} size={1} />
       </ReactFlow>
     </div>
   );

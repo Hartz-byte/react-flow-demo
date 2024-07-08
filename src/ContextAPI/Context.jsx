@@ -15,7 +15,7 @@ const FlowProvider = ({ children }) => {
   const [initialNodes, setInitialNodes] = useState([
     {
       id: "1",
-      position: { x: -50, y: 0 },
+      position: { x: 0, y: 0 },
       data: { message: "symbol message 1", id },
       type: "process",
     },
@@ -27,7 +27,7 @@ const FlowProvider = ({ children }) => {
       ...initialNodes,
       {
         id: `${initialNodes.length + 1}`,
-        position: { x: 130, y: 30 * (initialNodes.length * 1.3) },
+        position: { x: 150, y: 30 * (initialNodes.length * 1.3) },
         data: { message: "textNode", id },
         type: "message",
       },

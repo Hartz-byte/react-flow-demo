@@ -8,18 +8,20 @@ const SidePanel = () => {
   return (
     <div
       style={{
-        width: "27vw",
+        width: "15vw",
         border: "1px solid #D9D9D9",
         borderRadius: "3px",
         height: "90vh",
         overflowY: "auto",
+        display: "flex",
+        justifyContent: "center",
       }}
     >
-      {/* Action Process node button */}
+      {/* Message node button */}
       <button
         style={{
-          width: "150px",
-          height: "80px",
+          width: "100px",
+          height: "60px",
           margin: "12px",
           display: "flex",
           flexDirection: "column",
@@ -35,7 +37,7 @@ const SidePanel = () => {
               width="60"
               height="60"
             /> */}
-        Action Process
+        Message
       </button>
     </div>
   );

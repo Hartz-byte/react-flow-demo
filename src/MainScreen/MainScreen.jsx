@@ -10,11 +10,11 @@ const MainScreen = () => {
       <SaveButton />
 
       <div style={{ display: "flex" }}>
-        {/* flow builder component */}
-        <FlowBuilder />
-
         {/* node / settings panel component */}
         <SidePanel />
+
+        {/* flow builder component */}
+        <FlowBuilder />
       </div>
     </div>
   );
