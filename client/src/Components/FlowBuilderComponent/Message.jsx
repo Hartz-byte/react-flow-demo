@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import { Handle, Position } from "reactflow";
+import axios from "axios";
 
 const Message = () => {
   const [numTextareas, setNumTextareas] = useState(1);
+  const [data, setData] = useState(null);
+  const [error, setError] = useState(null);
 
   const handleAddTextarea = () => {
     if (numTextareas < 4) {
@@ -17,6 +20,27 @@ const Message = () => {
   };
 
   const textareaHeight = 20;
+
+  // get api call method
+  const handleGet = async () => {
+    try {
+      const userId = 2;
+      const response = await axios.get(`http://localhost:3002/get/${userId}`);
+      setData(response.data);
+
+      console.log(response);
+    } catch (err) {
+      console.error(err);
+      setError("Failed to get data");
+    }
+  };
+
+  const handleResponse = () => {
+    const textAreaElements = document.querySelectorAll("textarea");
+    // for (let i = 0; i < textAreaElements.length; i++) {
+    textAreaElements[0].value = "Response from the server...";
+    // }
+  };
 
   return (
     <div
@@ -109,7 +133,8 @@ const Message = () => {
             cursor: numTextareas === 4 ? "not-allowed" : "pointer",
           }}
           disabled={numTextareas === 4}
-          onClick={handleAddTextarea}
+          // onClick={handleAddTextarea}
+          onClick={handleResponse}
         >
           + Add Button
         </button>

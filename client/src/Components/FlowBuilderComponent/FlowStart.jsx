@@ -1,7 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import { Handle, Position } from "reactflow";
+import axios from "axios";
 
 const FlowStart = () => {
+  const [data, setData] = useState(null);
+  const [error, setError] = useState(null);
+
+  // post api call method
+  const handlePost = async (text) => {
+    try {
+      const response = await axios.post("http://localhost:3002/", { text });
+      setData(response.data);
+    } catch (err) {
+      console.error(err);
+      setError("Failed to post data");
+    }
+  };
+
   return (
     <div
       style={{
@@ -57,6 +72,7 @@ const FlowStart = () => {
         <input
           type="text"
           placeholder="Enter keywords"
+          onChange={(e) => setData({ text: e.target.value })}
           style={{
             width: "80px",
             height: "15px",
@@ -65,8 +81,23 @@ const FlowStart = () => {
           }}
         />
 
+        <button
+          style={{
+            width: "86px",
+            height: "20px",
+            margin: "5px 2px 2px 2px",
+            fontSize: "8px",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+          onClick={() => handlePost(data.text)}
+        >
+          Save Message
+        </button>
+
         {/* second input */}
-        <label style={{ fontSize: "5px", margin: "5px 2px 4px 2px" }}>
+        {/* <label style={{ fontSize: "5px", margin: "5px 2px 4px 2px" }}>
           Enter regex to match substring trigger
         </label>
         <input
@@ -77,7 +108,7 @@ const FlowStart = () => {
             fontSize: "6px",
             marginLeft: "1px",
           }}
-        />
+        /> */}
       </div>
 
       {/* handle */}

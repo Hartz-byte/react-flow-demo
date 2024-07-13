@@ -13,7 +13,12 @@ module.exports.register = async (req, res) => {
 
 // get
 module.exports.get = async (req, res) => {
-  let data = await userModel.get(req.body);
+  // let data = await userModel.get(req.body);
+  // console.log(data);
+  const userId = req.params.id;
+  let data = await userModel.get(userId);
+
+  console.log(data);
 
   if (data) {
     res.send({ status: "success", data: data });
